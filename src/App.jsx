@@ -58,8 +58,8 @@ function App() {
                 } else{
                     // Producir tacos después de delay
                     setTimeout(() => {
-                        const itemsToProduce = Math.min(getCantidadTacos(), BUFFER_SIZE - contador);
-                        producirTacos(itemsToProduce);
+                        const tacosToProduce = Math.min(getCantidadTacos(), BUFFER_SIZE - contador);
+                        producirTacos(tacosToProduce);
                     }, 1000);
                 }
                 
@@ -94,8 +94,8 @@ function App() {
                 } else{
                     // Consumir tacos después de delay
                     setTimeout(() => {
-                        const itemsToConsume = Math.min(getCantidadTacos(), contador);
-                        consumirTacos(itemsToConsume);
+                        const tacosToConsume = Math.min(getCantidadTacos(), contador);
+                        consumirTacos(tacosToConsume);
                     }, 1000);
                 }
                 
@@ -105,7 +105,7 @@ function App() {
         }
     }, [contador, productorActivo, consumidorActivo, pausa]);
 
-    // Función para producir múltiples items
+    // Función para producir múltiples tacos
     const producirTacos = (cantidad) => {
         let currentContador = contador;
         let currentTail = tail;
@@ -134,7 +134,7 @@ function App() {
         }, 1000);
     };
 
-    // Función para consumir múltiples items
+    // Función para consumir múltiples tacos
     const consumirTacos = (cantidad) => {
         let currentContador = contador;
         let currentHead = head;
